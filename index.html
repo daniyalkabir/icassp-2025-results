@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adversarial Audio Attack Results - ICASSP 2025</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Adversarial Audio Attack Results</h1>
+            <p class="subtitle">ICASSP 2025 - Neural Network Robustness Analysis</p>
+            
+            <div class="stats-overview">
+                <div class="stat-card">
+                    <div class="stat-number">16</div>
+                    <div class="stat-label">Target Texts</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Model Types</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">48</div>
+                    <div class="stat-label">Total Graphs</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">32</div>
+                    <div class="stat-label">Audio Samples</div>
+                </div>
+            </div>
+        </header>
+
+        <nav class="navigation">
+            <button class="nav-btn active" onclick="showSection('overview')">Overview</button>
+            <button class="nav-btn" onclick="showSection('ecapa')">ECAPA Results</button>
+            <button class="nav-btn" onclick="showSection('resnet')">ResNet Results</button>
+            <button class="nav-btn" onclick="showSection('comparison')">SNR vs Similarity</button>
+            <button class="nav-btn" onclick="showSection('audio')">Audio Samples</button>
+        </nav>
+
+        <section id="overview" class="section active">
+            <h2 style="margin-bottom: 20px; color: #333;">Research Overview</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 30px;">
+                This research investigates the robustness of neural network-based audio processing systems against adversarial attacks. 
+                We evaluated two prominent architectures: ECAPA-TDNN and ResNet, using 16 different target texts to assess their 
+                vulnerability to adversarial perturbations while maintaining audio quality.
+            </p>
+            
+            <div style="background: #e8f1ff; padding: 25px; border-radius: 12px; margin: 20px 0;">
+                <h3 style="color: #0066cc; margin-bottom: 15px;">Key Findings</h3>
+                <ul style="list-style-type: none; padding: 0;">
+                    <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #0066cc;">•</span>
+                        Comprehensive evaluation across 16 diverse target texts
+                    </li>
+                    <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #0066cc;">•</span>
+                        Comparative analysis between ECAPA-TDNN and ResNet architectures
+                    </li>
+                    <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #0066cc;">•</span>
+                        SNR vs Similarity trade-off analysis for each target
+                    </li>
+                    <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #0066cc;">•</span>
+                        Audio quality preservation in adversarial examples
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="ecapa" class="section">
+            <h2 style="margin-bottom: 20px; color: #333;">ECAPA-TDNN Normalized Results</h2>
+            <div class="target-grid" id="ecapa-grid">
+                <!-- Content will be loaded dynamically -->
+            </div>
+        </section>
+
+        <section id="resnet" class="section">
+            <h2 style="margin-bottom: 20px; color: #333;">ResNet Normalized Results</h2>
+            <div class="target-grid" id="resnet-grid">
+                <!-- Content will be loaded dynamically -->
+            </div>
+        </section>
+
+        <section id="comparison" class="section">
+            <h2 style="margin-bottom: 20px; color: #333;">SNR vs Similarity Analysis</h2>
+            <p style="margin-bottom: 30px; color: #555;">
+                Scatter plots showing the relationship between Signal-to-Noise Ratio (SNR) and similarity metrics 
+                for each target text, providing insights into the trade-offs between attack strength and audio quality.
+            </p>
+            <div class="target-grid" id="scatter-grid">
+                <!-- Content will be loaded dynamically -->
+            </div>
+        </section>
+
+        <section id="audio" class="section">
+            <h2 style="margin-bottom: 20px; color: #333;">Audio Samples Comparison</h2>
+            <p style="margin-bottom: 30px; color: #555;">
+                Listen to original audio samples alongside their adversarial counterparts to assess the perceptual 
+                quality and effectiveness of the attacks. Transcriptions show the actual recognized text.
+            </p>
+            <div class="target-grid" id="audio-grid">
+                <!-- Content will be loaded dynamically -->
+            </div>
+        </section>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
