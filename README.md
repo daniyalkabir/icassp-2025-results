@@ -51,52 +51,7 @@ This repository contains materials for our ICASSP 2025 paper on Impact of Phonet
 └── README.md                    # This file
 ```
 
-## Usage
 
 ### Viewing Results
 Visit the [interactive website]([https://daniyalkabir.github.io/icassp-2025-results/]) to explore all results with an intuitive interface.
 
-### Local Development
-```bash
-git clone https://github.com/yourusername/your-repo-name.git
-cd your-repo-name
-# Open index.html in your browser or serve with a local server
-python -m http.server 8000  # Python 3
-# or
-python -m SimpleHTTPServer 8000  # Python 2
-```
-
-## Required Files
-
-To use this website, you need to add the following files to your repository:
-
-### 1. ECAPA Graphs (16 files)
-- `data/ecapa_graphs/target_1_ecapa.png`
-- `data/ecapa_graphs/target_2_ecapa.png`
-- ... up to `target_16_ecapa.png`
-
-### 2. ResNet Graphs (16 files)
-- `data/resnet_graphs/target_1_resnet.png`
-- `data/resnet_graphs/target_2_resnet.png`
-- ... up to `target_16_resnet.png`
-
-### 3. Scatter Plot Graphs (16 files)
-- `data/scatter_plots/target_1_scatter.png`
-- `data/scatter_plots/target_2_scatter.png`
-- ... up to `target_16_scatter.png`
-
-### 4. Original Audio Files (16 files)
-- `data/audio/original/target_1_original.wav`
-- `data/audio/original/target_2_original.wav`
-- ... up to `target_16_original.wav`
-
-### 5. Adversarial Audio Files (16 files)
-- `data/audio/adversarial/target_1_adversarial.wav`
-- `data/audio/adversarial/target_2_adversarial.wav`
-- ... up to `target_16_adversarial.wav`
-
-## Customization Required
-
-Before deployment, you must update these sections in `js/script.js`:
-
-### 1.
