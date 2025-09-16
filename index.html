@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impact of Phonetics on Preserving Identity in Adversarial Voice Attacks - ICASSP 2025</title>
+    <title>Adversarial Audio Attack Results - ICASSP 2025</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Impact of Phonetics on Preserving Identity in Adversarial Voice Attacks</h1>
-            <p class="subtitle">ICASSP 2025 - Identity Drift Analysis</p>
+            <h1>Adversarial Audio Attack Results</h1>
+            <p class="subtitle">ICASSP 2025 - Neural Network Robustness Analysis</p>
             
             <div class="stats-overview">
                 <div class="stat-card">
@@ -25,31 +25,28 @@
                     <div class="stat-number">48</div>
                     <div class="stat-label">Total Graphs</div>
                 </div>
-                <!-- Hidden audio samples stats
                 <div class="stat-card">
                     <div class="stat-number">32</div>
                     <div class="stat-label">Audio Samples</div>
                 </div>
-                -->
             </div>
         </header>
 
         <nav class="navigation">
             <button class="nav-btn active" onclick="showSection('overview')">Overview</button>
+            <button class="nav-btn" onclick="showSection('detailed-metrics')">Detailed Metrics</button>
             <button class="nav-btn" onclick="showSection('ecapa')">ECAPA Results</button>
             <button class="nav-btn" onclick="showSection('resnet')">ResNet Results</button>
             <button class="nav-btn" onclick="showSection('comparison')">SNR vs Similarity</button>
-<!--             <button class="nav-btn" onclick="showSection('audio')">Audio Samples</button> -->
+            <button class="nav-btn" onclick="showSection('audio')">Audio Samples</button>
         </nav>
 
         <section id="overview" class="section active">
             <h2 style="margin-bottom: 20px; color: #333;">Research Overview</h2>
             <p style="font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 30px;">
-                This website accompanies our ICASSP paper and provides interactive access to all materials referenced in the manuscript. 
-                For each target phrase, we include two sets of normalized speaker–similarity graphs—one generated using an ECAPA‐TDNN backbone and one using a ResNet backbone.
-                These graphs visualize how the similarity distributions shift under adversarial perturbations. 
-                We also provide scatter plots illustrating the relationship between signal‑to‑noise ratio (SNR) and similarity scores for each phrase.
-                In the audio section, you can listen to the original and adversarial versions of a selected example utterance to display the attack. 
+                This research investigates the robustness of neural network-based audio processing systems against adversarial attacks. 
+                We evaluated two prominent architectures: ECAPA-TDNN and ResNet, using 16 different target texts to assess their 
+                vulnerability to adversarial perturbations while maintaining audio quality.
             </p>
             
             <div style="background: #e8f1ff; padding: 25px; border-radius: 12px; margin: 20px 0;">
@@ -57,21 +54,419 @@
                 <ul style="list-style-type: none; padding: 0;">
                     <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
                         <span style="position: absolute; left: 0; color: #0066cc;">•</span>
-                        Comprehensive phonetic and identity evaluation across 16 diverse target texts
+                        Comprehensive evaluation across 16 diverse target texts
                     </li>
                     <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
                         <span style="position: absolute; left: 0; color: #0066cc;">•</span>
-                        Comparative analysis of identity drift using ECAPA-TDNN and ResNet architectures
+                        Comparative analysis between ECAPA-TDNN and ResNet architectures
                     </li>
                     <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
                         <span style="position: absolute; left: 0; color: #0066cc;">•</span>
                         SNR vs Similarity trade-off analysis for each target
                     </li>
-<!--                     <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+                    <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
                         <span style="position: absolute; left: 0; color: #0066cc;">•</span>
-                        Audio quality preservation in adversarial examples
-                    </li> -->
+                        Robustness evaluation across different attack scenarios
+                    </li>
                 </ul>
+            </div>
+
+  
+
+        <section id="detailed-metrics" class="section">
+            <h2 style="margin-bottom: 20px; color: #333;">Detailed Metrics by Target</h2>
+            <p style="margin-bottom: 30px; color: #555;">
+                Comprehensive performance metrics for each target text across both ECAPA-TDNN and ResNet50 models. 
+                Success rate indicates the proportion of successful attacks, TMR is measured at FMR = 0.1%, 
+                and d' represents discriminability between genuine and impostor score distributions.
+            </p>
+            
+            <div class="detailed-table-container">
+                <table class="detailed-metrics-table">
+                    <thead>
+                        <tr>
+                            <th rowspan="2" class="target-col">Target</th>
+                            <th rowspan="2" class="text-col">Target Text</th>
+                            <th rowspan="2" class="phonetic-col">Phonetic Profile</th>
+                            <th rowspan="2" class="model-col">Model</th>
+                            <th rowspan="2" class="samples-col">#Samples</th>
+                            <th rowspan="2" class="genuine-col">#Genuine</th>
+                            <th rowspan="2" class="impostor-col">#Impostor</th>
+                            <th rowspan="2" class="success-col">Success</th>
+                            <th rowspan="2" class="tmr-col">TMR@0.1%FMR</th>
+                            <th rowspan="2" class="dprime-col">d'</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- T1 -->
+                        <tr class="target-row">
+                            <td rowspan="2" class="target-id">T1</td>
+                            <td rowspan="2" class="target-text">Yes</td>
+                            <td rowspan="2" class="phonetic-desc">mono-syll.; 1:2 V:C; glide+fric stop</td>
+                            <td class="model-name ecapa">ECAPA-TDNN</td>
+                            <td>11,881</td>
+                            <td>109</td>
+                            <td>11,772</td>
+                            <td class="success-rate perfect">109/109</td>
+                            <td class="tmr-value">1.0000</td>
+                            <td class="dprime-value">9.68</td>
+                        </tr>
+                        <tr class="target-row">
+                            <td class="model-name resnet">ResNet50</td>
+                            <td>11,881</td>
+                            <td>109</td>
+                            <td>11,772</td>
+                            <td class="success-rate perfect">109/109</td>
+                            <td class="tmr-value">1.0000</td>
+                            <td class="dprime-value">9.43</td>
+                        </tr>
+                        
+                        <!-- T2 -->
+                        <tr class="target-row">
+                            <td rowspan="2" class="target-id">T2</td>
+                            <td rowspan="2" class="target-text">Open the door</td>
+                            <td rowspan="2" class="phonetic-desc">4 syll.; 4:6 V:C; dental fric. + stops</td>
+                            <td class="model-name ecapa">ECAPA-TDNN</td>
+                            <td>11,881</td>
+                            <td>109</td>
+                            <td>11,772</td>
+                            <td class="success-rate perfect">109/109</td>
+                            <td class="tmr-value">1.0000</td>
+                            <td class="dprime-value">9.11</td>
+                        </tr>
+                        <tr class="target-row">
+                            <td class="model-name resnet">ResNet50</td>
+                            <td>11,881</td>
+                            <td>109</td>
+                            <td>11,772</td>
+                            <td class="success-rate perfect">109/109</td>
+                            <td class="tmr-value">1.0000</td>
+                            <td class="dprime-value">8.89</td>
+                        </tr>
+                        
+                        <!-- T3 -->
+                        <tr class="target-row">
+                            <td rowspan="2" class="target-id">T3</td>
+                            <td rowspan="2" class="target-text">Call emergency services</td>
+                            <td rowspan="2" class="phonetic-desc">fricative-heavy; 8 syll.; 8:16 V:C</td>
+                            <td class="model-name ecapa">ECAPA-TDNN</td>
+                            <td>11,881</td>
+                            <td>109</td>
+                            <td>11,772</td>
+                            <td class="success-rate high">106/109</td>
+                            <td class="tmr-value">0.9684</td>
+                            <td class="dprime-value">5.59</td>
+                        </tr>
+                        <tr class="target-row">
+                            <td class="model-name resnet">ResNet50</td>
+                            <td>11,881</td>
+                            <td>109</td>
+                            <td>11,772</td>
+                            <td class="success-rate high">107/109</td>
+                            <td class="tmr-value">0.9789</td>
+                            <td class="dprime-value">6.22</td>
+                        </tr>
+                        
+                        <!-- T4 -->
+                        <tr class="target-row">
+                            <td rowspan="2" class="target-id">T4</td>
+                            <td rowspan="2" class="target-text">The quick brown fox jumped over the lazy dog</td>
+                            <td rowspan="2" class="phonetic-desc">pangram; 11 syll.; broad place/manner coverage</td>
+                            <td class="model-name ecapa">ECAPA-TDNN</td>
+                            <td>11,881</td>
+                            <td>109</td>
+                            <td>11,772</td>
+                            <td class="success-rate high">99/109</td>
+                            <td class="tmr-value">0.9084</td>
+                            <td class="dprime-value">4.80</td>
+                        </tr>
+                        <tr class="target-row">
+                            <td class="model-name resnet">ResNet50</td>
+                            <td>11,881</td>
+                            <td>109</td>
+                            <td>11,772</td>
+                            <td class="success-rate high">102/109</td>
+                            <td class="tmr-value">0.9266</td>
+                            <td class="dprime-value">5.14</td>
+                        </tr>
+                        
+                        <!-- T5 -->
+                        <tr class="target-row">
+                            <td rowspan="2" class="target-id">T5</td>
+                            <td rowspan="2" class="target-text">Shhh she sees the sea fish</td>
+                            <td rowspan="2" class="phonetic-desc">fricatives /ʃ s z/ cluster; 6 syll.</td>
+                            <td class="model-name ecapa">ECAPA-TDNN</td>
+                            <td>11,881</td>
+                            <td>109</td>
+                            <td>11,772</td>
+                            <td class="success-rate perfect">109/109</td>
+                            <td class="tmr-value">0.9895</td>
+                            <td class="dprime-value">7.46</td>
+                        </tr>
+                        <tr class="target-row">
+                            <td class="model-name resnet">ResNet50</td>
+                            <td>11,881</td>
+                            <td>109</td>
+                            <td>11,772</td>
+                            <td class="success-rate perfect">109/109</td>
+                            <td class="tmr-value">1.0000</td>
+                            <td class="dprime-value">7.74</td>
+                        </tr>
+                        
+                        <!-- T6 -->
+                        <tr class="target-row">
+                            <td rowspan="2" class="target-id">T6</td>
+                            <td rowspan="2" class="target-text">Do go big bag dig</td>
+                            <td rowspan="2" class="phonetic-desc">voiced stops chain; minimal vowels; 5 syll.</td>
+                            <td class="model-name ecapa">ECAPA-TDNN</td>
+                            <td>11,881</td>
+                            <td>109</td>
+                            <td>11,772</td>
+                            <td class="success-rate perfect">109/109</td>
+                            <td class="tmr-value">1.0000</td>
+                            <td class="dprime-value">8.44</td>
+                        </tr>
+                        <tr class="target-row">
+                            <td class="model-name resnet">ResNet50</td>
+                            <td>11,881</td>
+                            <td>109</td>
+                            <td>11,772</td>
+                            <td class="success-rate perfect">109/109</td>
+                            <td class="tmr-value">1.0000</td>
+                            <td class="dprime-value">8.35</td>
+                        </tr>
+                        
+                        <!-- T7 -->
+                        <tr class="target-row">
+                            <td rowspan="2" class="target-id">T7</td>
+                            <td rowspan="2" class="target-text">Two tall teachers talk to Tim</td>
+                            <td rowspan="2" class="phonetic-desc">/t/ alliteration; alveolar bursts; 7 syll.</td>
+                            <td class="model-name ecapa">ECAPA-TDNN</td>
+                            <td>11,881</td>
+                            <td>109</td>
+                            <td>11,772</td>
+                            <td class="success-rate perfect">109/109</td>
+                            <td class="tmr-value">1.0000</td>
+                            <td class="dprime-value">7.79</td>
+                        </tr>
+                        <tr class="target-row">
+                            <td class="model-name resnet">ResNet50</td>
+                            <td>11,881</td>
+                            <td>109</td>
+                            <td>11,772</td>
+                            <td class="success-rate perfect">109/109</td>
+                            <td class="tmr-value">1.0000</td>
+                            <td class="dprime-value">7.59</td>
+                        </tr>
+                        
+                        <!-- T8 -->
+                        <tr class="target-row">
+                            <td rowspan="2" class="target-id">T8</td>
+                            <td rowspan="2" class="target-text">I whisper while walking wildly</td>
+                            <td rowspan="2" class="phonetic-desc">approximants + /w/ clusters; 8 syll.</td>
+                            <td class="model-name ecapa">ECAPA-TDNN</td>
+                            <td>11,881</td>
+                            <td>109</td>
+                            <td>11,772</td>
+                            <td class="success-rate perfect">109/109</td>
+                            <td class="tmr-value">1.0000</td>
+                            <td class="dprime-value">7.17</td>
+                        </tr>
+                        <tr class="target-row">
+                            <td class="model-name resnet">ResNet50</td>
+                            <td>11,881</td>
+                            <td>109</td>
+                            <td>11,772</td>
+                            <td class="success-rate perfect">109/109</td>
+                            <td class="tmr-value">1.0000</td>
+                            <td class="dprime-value">7.33</td>
+                        </tr>
+                        
+                        <!-- T9 -->
+                        <tr class="target-row">
+                            <td rowspan="2" class="target-id">T9</td>
+                            <td rowspan="2" class="target-text">Pack my box with five dozen liquor jugs</td>
+                            <td rowspan="2" class="phonetic-desc">pangram; many consonant clusters; stress variation</td>
+                            <td class="model-name ecapa">ECAPA-TDNN</td>
+                            <td>9,025</td>
+                            <td>95</td>
+                            <td>8,930</td>
+                            <td class="success-rate high">83/95</td>
+                            <td class="tmr-value">0.8749</td>
+                            <td class="dprime-value">4.63</td>
+                        </tr>
+                        <tr class="target-row">
+                            <td class="model-name resnet">ResNet50</td>
+                            <td>9,025</td>
+                            <td>95</td>
+                            <td>8,930</td>
+                            <td class="success-rate high">89/95</td>
+                            <td class="tmr-value">0.9377</td>
+                            <td class="dprime-value">5.02</td>
+                        </tr>
+                        
+                        <!-- T10 -->
+                        <tr class="target-row">
+                            <td rowspan="2" class="target-id">T10</td>
+                            <td rowspan="2" class="target-text">Glib jocks quiz nymph to vex dwarf</td>
+                            <td rowspan="2" class="phonetic-desc">pangram; high fricative/affricate load</td>
+                            <td class="model-name ecapa">ECAPA-TDNN</td>
+                            <td>9,025</td>
+                            <td>95</td>
+                            <td>8,930</td>
+                            <td class="success-rate high">88/95</td>
+                            <td class="tmr-value">0.9262</td>
+                            <td class="dprime-value">4.75</td>
+                        </tr>
+                        <tr class="target-row">
+                            <td class="model-name resnet">ResNet50</td>
+                            <td>9,025</td>
+                            <td>95</td>
+                            <td>8,930</td>
+                            <td class="success-rate high">91/95</td>
+                            <td class="tmr-value">0.9586</td>
+                            <td class="dprime-value">5.34</td>
+                        </tr>
+                        
+                        <!-- T11 -->
+                        <tr class="target-row">
+                            <td rowspan="2" class="target-id">T11</td>
+                            <td rowspan="2" class="target-text">A mad boxer shot a quick gloved jab to the jaw of his dizzy opponent</td>
+                            <td rowspan="2" class="phonetic-desc">mixed plosives/fricatives; many unstressed vowels</td>
+                            <td class="model-name ecapa">ECAPA-TDNN</td>
+                            <td>9,025</td>
+                            <td>95</td>
+                            <td>8,930</td>
+                            <td class="success-rate medium">71/95</td>
+                            <td class="tmr-value">0.7474</td>
+                            <td class="dprime-value">3.79</td>
+                        </tr>
+                        <tr class="target-row">
+                            <td class="model-name resnet">ResNet50</td>
+                            <td>9,025</td>
+                            <td>95</td>
+                            <td>8,930</td>
+                            <td class="success-rate high">80/95</td>
+                            <td class="tmr-value">0.8429</td>
+                            <td class="dprime-value">4.45</td>
+                        </tr>
+                        
+                        <!-- T12 -->
+                        <tr class="target-row">
+                            <td rowspan="2" class="target-id">T12</td>
+                            <td rowspan="2" class="target-text">Just before twilight the wizard quickly jabbed five boxes of hazy quartz to vex a plump knight's jovial frog</td>
+                            <td rowspan="2" class="phonetic-desc">very long pangram; many clusters; vowel centralization</td>
+                            <td class="model-name ecapa">ECAPA-TDNN</td>
+                            <td>6,561</td>
+                            <td>81</td>
+                            <td>6,480</td>
+                            <td class="success-rate low">24/81</td>
+                            <td class="tmr-value">0.2346</td>
+                            <td class="dprime-value">3.07</td>
+                        </tr>
+                        <tr class="target-row">
+                            <td class="model-name resnet">ResNet50</td>
+                            <td>6,561</td>
+                            <td>81</td>
+                            <td>6,480</td>
+                            <td class="success-rate medium">42/81</td>
+                            <td class="tmr-value">0.5963</td>
+                            <td class="dprime-value">3.63</td>
+                        </tr>
+                        
+                        <!-- T13 -->
+                        <tr class="target-row">
+                            <td rowspan="2" class="target-id">T13</td>
+                            <td rowspan="2" class="target-text">Twelve jolly grizzlies briskly danced over waxy benches while a flighty kitten kept humming jazz tunes in the background</td>
+                            <td rowspan="2" class="phonetic-desc">fricative+affricate mix; many unstressed vowels</td>
+                            <td class="model-name ecapa">ECAPA-TDNN</td>
+                            <td>3,025</td>
+                            <td>55</td>
+                            <td>2,970</td>
+                            <td class="success-rate low">19/55</td>
+                            <td class="tmr-value">0.4545</td>
+                            <td class="dprime-value">3.06</td>
+                        </tr>
+                        <tr class="target-row">
+                            <td class="model-name resnet">ResNet50</td>
+                            <td>3,025</td>
+                            <td>55</td>
+                            <td>2,970</td>
+                            <td class="success-rate medium">27/55</td>
+                            <td class="tmr-value">0.5091</td>
+                            <td class="dprime-value">3.46</td>
+                        </tr>
+                        
+                        <!-- T14 -->
+                        <tr class="target-row">
+                            <td rowspan="2" class="target-id">T14</td>
+                            <td rowspan="2" class="target-text">Quantum driven flux engines jam beneath zigzagging vortex panels as cryptic bioforms whisper behind polymorphic glass domes</td>
+                            <td rowspan="2" class="phonetic-desc">dense consonant clusters; many fricatives/affricates</td>
+                            <td class="model-name ecapa">ECAPA-TDNN</td>
+                            <td>2,209</td>
+                            <td>47</td>
+                            <td>2,162</td>
+                            <td class="success-rate low">21/47</td>
+                            <td class="tmr-value">0.4468</td>
+                            <td class="dprime-value">3.10</td>
+                        </tr>
+                        <tr class="target-row">
+                            <td class="model-name resnet">ResNet50</td>
+                            <td>2,209</td>
+                            <td>47</td>
+                            <td>2,162</td>
+                            <td class="success-rate medium">26/47</td>
+                            <td class="tmr-value">0.5539</td>
+                            <td class="dprime-value">3.78</td>
+                        </tr>
+                        
+                        <!-- T15 -->
+                        <tr class="target-row">
+                            <td rowspan="2" class="target-id">T15</td>
+                            <td rowspan="2" class="target-text">While whispering winds wander westward jittery jackals jiggled jellies above velvet jars beyond flickering bonfires in a frozen jungle</td>
+                            <td rowspan="2" class="phonetic-desc">repeated /w/ /ʤ/; long with many approximants</td>
+                            <td class="model-name ecapa">ECAPA-TDNN</td>
+                            <td>3,025</td>
+                            <td>55</td>
+                            <td>2,970</td>
+                            <td class="success-rate medium">25/55</td>
+                            <td class="tmr-value">0.5455</td>
+                            <td class="dprime-value">3.39</td>
+                        </tr>
+                        <tr class="target-row">
+                            <td class="model-name resnet">ResNet50</td>
+                            <td>3,025</td>
+                            <td>55</td>
+                            <td>2,970</td>
+                            <td class="success-rate medium">30/55</td>
+                            <td class="tmr-value">0.6545</td>
+                            <td class="dprime-value">3.54</td>
+                        </tr>
+                        
+                        <!-- T16 -->
+                        <tr class="target-row">
+                            <td rowspan="2" class="target-id">T16</td>
+                            <td rowspan="2" class="target-text">Kindly expedite bizarre frozen jumpsuits for victors whirlwind gala to maximize xenon emissions before daybreak</td>
+                            <td rowspan="2" class="phonetic-desc">'x/ʒ/ks' clusters; mixed stops/fricatives; multi-syllabic</td>
+                            <td class="model-name ecapa">ECAPA-TDNN</td>
+                            <td>5,184</td>
+                            <td>72</td>
+                            <td>5,112</td>
+                            <td class="success-rate low">25/72</td>
+                            <td class="tmr-value">0.2083</td>
+                            <td class="dprime-value">3.09</td>
+                        </tr>
+                        <tr class="target-row">
+                            <td class="model-name resnet">ResNet50</td>
+                            <td>5,184</td>
+                            <td>72</td>
+                            <td>5,112</td>
+                            <td class="success-rate low">30/72</td>
+                            <td class="tmr-value">0.4583</td>
+                            <td class="dprime-value">3.30</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </section>
 
