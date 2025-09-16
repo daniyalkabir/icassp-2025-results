@@ -1,4 +1,6 @@
-// Target texts - REPLACE THESE WITH YOUR ACTUAL TARGET TEXTS
+
+
+// Target texts - EXTRACTED FROM YOUR RESEARCH TABLE
 const targetTexts = [
     "yes",
     "open the door",
@@ -16,28 +18,29 @@ const targetTexts = [
     "quantum driven flux engines jam beneath zigzagging vortex panels as cryptic bioforms whisper behind polymorphic glass domes",
     "while whispering winds wander westward jittery jackals juggle velvet jars beyond flickering bonfires in a frozen jungle",
     "kindly expedite bizarre frozen jumpsuits for victors whirlwind gala to maximize xenon emissions before daybreak"
+
 ];
 
 // Transcriptions - REPLACE THESE WITH YOUR ACTUAL TRANSCRIPTIONS
 // originalTranscriptions[i] = what the original audio was transcribed as
 // adversarialTranscriptions[i] = what the adversarial audio was transcribed as
 const originalTranscriptions = [
-    "The quick brown fox jumps over the lazy dog",
-    "Hello world this is a test message",
-    "Machine learning is transforming our world",
-    "Deep neural networks process complex patterns",
-    "Adversarial examples challenge model robustness",
-    "Audio processing requires sophisticated algorithms",
-    "Speaker recognition systems use voice biometrics",
-    "Natural language processing enables human-computer interaction",
-    "Artificial intelligence continues to advance rapidly",
-    "Signal processing techniques analyze digital audio",
-    "Cybersecurity protects against malicious attacks",
-    "Data science extracts insights from large datasets",
-    "Computer vision interprets visual information",
-    "Robotics combines mechanical and computational systems",
-    "Cloud computing provides scalable infrastructure",
-    "Internet of Things connects everyday devices"
+    "REPLACE WITH ACTUAL  TRANSCRIPTION 1",
+    "REPLACE WITH ACTUAL  TRANSCRIPTION 2",
+    "REPLACE WITH ACTUAL  TRANSCRIPTION 3",
+    "REPLACE WITH ACTUAL  TRANSCRIPTION 4",
+    "REPLACE WITH ACTUAL  TRANSCRIPTION 5",
+    "REPLACE WITH ACTUAL  TRANSCRIPTION 6",
+    "REPLACE WITH ACTUAL  TRANSCRIPTION 7",
+    "REPLACE WITH ACTUAL  TRANSCRIPTION 8",
+    "REPLACE WITH ACTUAL  TRANSCRIPTION 9",
+    "REPLACE WITH ACTUAL  TRANSCRIPTION 10",
+    "REPLACE WITH ACTUAL  TRANSCRIPTION 11",
+    "REPLACE WITH ACTUAL  TRANSCRIPTION 12",
+    "REPLACE WITH ACTUAL  TRANSCRIPTION 13",
+    "REPLACE WITH ACTUAL  TRANSCRIPTION 14",
+    "REPLACE WITH ACTUAL  TRANSCRIPTION 15",
+    "REPLACE WITH ACTUAL  TRANSCRIPTION 16"
 ];
 
 const adversarialTranscriptions = [
