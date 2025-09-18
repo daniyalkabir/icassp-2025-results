@@ -41,15 +41,7 @@ This repository contains materials for our ICASSP 2025 paper on Impact of Phonet
 │   │   ├── target_1_scatter.png
 │   │   ├── target_2_scatter.png
 │   │   └── ... (up to target_16_scatter.png)
-│   └── audio/
-│       ├── original/            # Original audio samples (16 files)
-│       │   ├── target_1_original.wav
-│       │   ├── target_2_original.wav
-│       │   └── ... (up to target_16_original.wav)
-│       └── adversarial/         # Adversarial audio samples (16 files)
-│           ├── target_1_adversarial.wav
-│           ├── target_2_adversarial.wav
-│           └── ... (up to target_16_adversarial.wav)
+
 └── README.md                    # This file
 ```
 
